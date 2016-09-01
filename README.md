@@ -1,0 +1,2 @@
+# Cotação Dólar
+
