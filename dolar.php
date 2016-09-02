@@ -18,7 +18,7 @@ try {
 
     $conexao = new SoapClient('https://www3.bcb.gov.br/sgspub/JSP/sgsgeral/FachadaWSSGS.wsdl');
     $result = $conexao->__soapCall('getValor', array("in0" => "1", "in1" => $dataCotacao));
-    echo "R$ " . number_format($result, 2, ',', '.') . "\n";
+    echo "Cotação em {$dataCotacao}: R$ " . number_format($result, 2, ',', '.') . "\n";
 
 } catch (\Exception $e) {
     echo "Não foi possível recuperar a cotação na data solicitada.\n";
