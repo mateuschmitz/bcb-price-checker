@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://schemas.conversesolutions.com/xsd/dmticta/v1">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <v1:getValor>
+            <v1:in0>1</v1:in0>
+            <v1:in1>15/09/2016</v1:in1>
+        </v1:getValor>
+    </soapenv:Body>
+</soapenv:Envelope>
