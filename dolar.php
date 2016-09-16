@@ -2,6 +2,7 @@
 
 ini_set("soap.wsdl_cache_enabled", "0");
 header('Content-type: text/html; charset=UTF-8');
+date_default_timezone_set('America/Sao_Paulo');
 
 /**
  * Organiza parâmetros
