@@ -1,2 +1,2 @@
-# Cotação Dólar
+# BCB Price Checker
 
