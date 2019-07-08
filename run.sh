@@ -6,6 +6,12 @@ if [ -z "$DATE" ]
     DATE=$(date +%d/%m/%Y)
 fi
 
+SERIE=$2
+if [ -z "$SERIE" ]
+  then
+    SERIE=1
+fi
+
 BCB_URL="https://www3.bcb.gov.br/wssgs/services/FachadaWSSGS"
 BCBWSACTION="getValor"
 
@@ -13,7 +19,7 @@ ENVELOPE="<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/enve
 ENVELOPE+="<soapenv:Header/>"
 ENVELOPE+="<soapenv:Body>"
 ENVELOPE+="<v1:$BCBWSACTION>"
-ENVELOPE+="<v1:in0>1</v1:in0>"
+ENVELOPE+="<v1:in0>$SERIE</v1:in0>"
 ENVELOPE+="<v1:in1>$DATE</v1:in1>"
 ENVELOPE+="</v1:$BCBWSACTION>"
 ENVELOPE+="</soapenv:Body>"
@@ -27,7 +33,7 @@ RESULT=$(curl -s --header "Content-Type: text/xml;charset=UTF-8" \
 if [[ $RESULT =~ ([0-9]{1,2}\.[0-9]{3,5}) ]]; then
     VALUE=${BASH_REMATCH[1]}
 else
-    echo "Value not found to $DATE"
+    echo "Value not found to '$DATE'"
     exit
 fi
 
